@@ -29,9 +29,10 @@ jobs:
       - name: Fetch patches
         run: |
           mkdir patches
-          cd patches
           chmod a+x fetch.sh
           ./fetch.sh patch
+          cd patches
+          mv ../*patch .
 
       # Runs a set of commands using the runners shell
       - name: Fetch kernel sources
