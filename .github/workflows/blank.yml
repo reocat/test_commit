@@ -28,9 +28,17 @@ jobs:
       # Runs a single command using the runners shell
       - name: Fetch patches
         run: |
+          mkdir patches
+          cd patches
           chmod a+x fetch.sh
           ./fetch.sh patch
 
       # Runs a set of commands using the runners shell
-      - name: ls
-        run: ls
+      - name: Fetch kernel sources
+        run: git clone https://github.com/reocat/android_kernel_nokia_sdm660_ksu kernel
+
+      - name: Apply patches
+        run: |
+            cp patches/*patch kernel
+            cd kernel
+            git apply *patch --reject
