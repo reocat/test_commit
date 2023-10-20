@@ -36,7 +36,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Fetch kernel sources
-        run: git clone https://github.com/reocat/android_kernel_nokia_sdm660_ksu kernel
+        run: git clone -j$(nproc --all) https://github.com/reocat/android_kernel_nokia_sdm660_ksu kernel
 
       - name: Apply patches
         run: |
