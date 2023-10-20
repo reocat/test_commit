@@ -27,7 +27,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Fetch patches
-        run: sh patch.sh
+        run: |
+          chmod a+x fetch.sh
+          ./fetch.sh patch
 
       # Runs a set of commands using the runners shell
       - name: ls
